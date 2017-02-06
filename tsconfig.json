@@ -1,0 +1,31 @@
+{
+   "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "skipLibCheck": true
+   },
+   "exclude": [
+      "node_modules",
+      "coverage",
+      "config",
+      "report",
+      "dist"
+   ],
+   "include": [
+      "src/**/*.ts"
+   ],
+   "awesomeTypescriptLoaderOptions": {
+      "useWebpackText": true
+   },
+   "compileOnSave": false,
+   "buildOnSave": false,
+   "atom": {
+      "rewriteTsconfig": false
+   }
+}
