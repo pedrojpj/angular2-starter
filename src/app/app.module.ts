@@ -13,9 +13,14 @@ import {
 import {
     RouterModule,
     PreloadAllModules
+
 } from '@angular/router';
 
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+type StoreType = {
+    state: InternalStateType,
+    restoreInputValues: () => void,
+    disposeOldHosts: () => void
+};
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -23,21 +28,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ENV_PROVIDERS } from './environment';
 // App is our top level component
 import { AppComponent } from './app.component';
+
+import { APP_PROVIDERS } from './app.providers';
+import { APP_IMPORTS } from './app.imports';
+
 import { AppState, InternalStateType } from './app.service';
 
 import { counter } from './app.actions';
-import { provideStore, StoreModule } from '@ngrx/store';
+import { provideStore, StoreModule, Store } from '@ngrx/store';
 
-// Application wide providers
-const APP_PROVIDERS = [
-    AppState
-];
-
-type StoreType = {
-    state: InternalStateType,
-    restoreInputValues: () => void,
-    disposeOldHosts: () => void
-};
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -48,17 +47,12 @@ type StoreType = {
         AppComponent,
     ],
     imports: [ // import Angular's modules
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        StoreModule.provideStore({ counter }),
-        StoreDevtoolsModule.instrumentOnlyWithExtension({
-            maxAge: 5
-        })
+        APP_IMPORTS
     ],
     providers: [ // expose our Services and Providers into Angular's dependency injection
         ENV_PROVIDERS,
         APP_PROVIDERS,
+        AppState
     ]
 })
 export class AppModule {
@@ -104,5 +98,4 @@ export class AppModule {
         store.disposeOldHosts();
         delete store.disposeOldHosts;
     }
-
 }

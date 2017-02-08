@@ -6,10 +6,14 @@ import {
     OnInit,
     ViewEncapsulation
 } from '@angular/core';
-import { AppState } from './app.service';
 
+import { AppState } from './reducers';
+import * as fromRoot from './reducers';
 import { Store } from '@ngrx/store';
-import { INCREMENT, DECREMENT } from './app.actions';
+import { CounterActions } from './actions/counter.actions';
+import { Counter } from './models';
+import { Observable } from 'rxjs';
+
 
 /*
  * App Component
@@ -23,24 +27,25 @@ import { INCREMENT, DECREMENT } from './app.actions';
 })
 export class AppComponent implements OnInit {
 
-    public counter: any;
+    public counter: Observable<Counter>;;
 
     constructor(
-        public appState: AppState,
-        private store: Store<any>
+        private counterActions: CounterActions,
+        private store: Store<AppState>
     ) { }
 
     public ngOnInit() {
-        console.log('Initial App State', this.appState.state);
-        this.counter = this.store.select('counter');
+        this.store.select(fromRoot.getCounter).subscribe(res => {
+            console.log(res);
+        })
     }
 
     increment() {
-        this.store.dispatch({ type: INCREMENT })
+        this.store.dispatch(this.counterActions.increment())
     }
 
     decrement() {
-        this.store.dispatch({ type: DECREMENT })
+        this.store.dispatch(this.counterActions.decrement())
     }
 
 }
