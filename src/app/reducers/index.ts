@@ -8,39 +8,20 @@ import { storeLogger } from 'ngrx-store-logger';
 import * as user from './user.reducers';
 import * as counter from './counter.reducers';
 
-const modules = {
-    'user': user,
-    'counter' : counter
-}
 
 export interface AppState {
     user: user.UserState,
     counter: counter.CounterState
 }
 
-export const reducers = {
+const reducers = {
     user: user.userReducer,
-    counter: counter.counterReducer
+    counter: counter.reducer
 }
 
-export const getCounterState = (state: AppState) => state.counter;
 
-export const getCounter = createSelector(getCounterState, counter.getCounter)
 
-function stateSetter(reducer: ActionReducer<any>): ActionReducer<any> {
-    return function (state, action) {
-        if (action.type === 'SET_ROOT_STATE') {
-            return action.payload
-        }
-        return reducer(state, action);
-    }
-}
-
-const DEV_REDUCERS = [stateSetter, storeFreeze];
-
-DEV_REDUCERS.push(storeLogger());
-
-const developmentReducer = compose(...DEV_REDUCERS, combineReducers)(reducers);
+const developmentReducer = compose(storeFreeze, combineReducers)(reducers);
 const productionReducer = compose(combineReducers)(reducers);
 
 export function rootReducer(state: any, action: any) {
@@ -50,5 +31,11 @@ export function rootReducer(state: any, action: any) {
         return developmentReducer(state, action);
     }
 }
+
+export const getCounterState = (state: AppState) => {
+    console.log(state);
+    return state.counter    
+}
+export const getCounter = createSelector(getCounterState, counter.getCounter);
 
 

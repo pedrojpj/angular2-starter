@@ -4,7 +4,6 @@ import { Action } from '@ngrx/store';
 import { Counter } from '../models/counter.model';
 
 @Injectable()
-
 export class CounterActions {
 
     static INCREMENT = '[Counter] Increment';

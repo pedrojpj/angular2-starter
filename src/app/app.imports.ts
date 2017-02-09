@@ -10,7 +10,7 @@ export const APP_IMPORTS = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({ rootReducer }),
+    StoreModule.provideStore(rootReducer),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
         maxAge: 5
     })

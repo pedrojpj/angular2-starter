@@ -11,7 +11,7 @@ export const initialState: CounterState = {
     number: 0
 }
 
-export function counterReducer(state = initialState, action: Action): CounterState {
+export function reducer(state = initialState, action: Action): CounterState {
 
     switch (action.type) {
 
@@ -34,7 +34,4 @@ export function counterReducer(state = initialState, action: Action): CounterSta
     }
 }
 
-export const getCounter = (state: CounterState) => {
-    console.log(state)
-    return state.number
-}
+export const getCounter = (state: CounterState) =>  state.number;

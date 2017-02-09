@@ -37,6 +37,8 @@ import { AppState, InternalStateType } from './app.service';
 import { counter } from './app.actions';
 import { provideStore, StoreModule, Store } from '@ngrx/store';
 
+import { CounterComponent } from './components/counter';
+
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -45,6 +47,7 @@ import { provideStore, StoreModule, Store } from '@ngrx/store';
     bootstrap: [AppComponent],
     declarations: [
         AppComponent,
+        CounterComponent
     ],
     imports: [ // import Angular's modules
         APP_IMPORTS
