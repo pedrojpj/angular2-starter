@@ -5,24 +5,18 @@ import * as fromRouter from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { storeLogger } from 'ngrx-store-logger';
 
-import * as user from './user.reducers';
 import * as counter from './counter.reducers';
 
-
 export interface AppState {
-    user: user.UserState,
-    counter: counter.CounterState
+    counter: counter.CounterState;
 }
 
-const reducers = {
-    user: user.userReducer,
+const reducers: any = {
     counter: counter.reducer
-}
+};
 
-
-
-const developmentReducer = compose(storeFreeze, combineReducers)(reducers);
-const productionReducer = compose(combineReducers)(reducers);
+const developmentReducer: any = compose(storeFreeze, combineReducers)(reducers);
+const productionReducer: any = compose(combineReducers)(reducers);
 
 export function rootReducer(state: any, action: any) {
     if (ENV !== 'development') {
@@ -32,10 +26,10 @@ export function rootReducer(state: any, action: any) {
     }
 }
 
-export const getCounterState = (state: AppState) => {
+export const getCounterState: any = (state: AppState) => {
     console.log(state);
-    return state.counter    
+    return state.counter;
 }
-export const getCounter = createSelector(getCounterState, counter.getCounter);
+export const getCounter: any = createSelector(getCounterState, counter.getCounter);
 
 

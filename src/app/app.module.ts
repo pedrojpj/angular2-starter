@@ -39,20 +39,16 @@ import { provideStore, StoreModule, Store } from '@ngrx/store';
 
 import { CounterComponent } from './components/counter';
 
-
-/**
- * `AppModule` is the main entry point into Angular2's bootstraping process
- */
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [
         AppComponent,
         CounterComponent
     ],
-    imports: [ // import Angular's modules
+    imports: [
         APP_IMPORTS
     ],
-    providers: [ // expose our Services and Providers into Angular's dependency injection
+    providers: [ 
         ENV_PROVIDERS,
         APP_PROVIDERS,
         AppState

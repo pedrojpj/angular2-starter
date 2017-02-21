@@ -1,6 +1,5 @@
-import { UserActions, CounterActions } from './actions';
+import { CounterActions } from './actions';
 
-export const APP_PROVIDERS = [
-    UserActions,
+export const APP_PROVIDERS: any = [
     CounterActions
-]
+];

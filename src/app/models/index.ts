@@ -1,2 +1,1 @@
-export * from './user.model';
-export * from './counter.model';
+export { Counter } from './counter.model';

@@ -32,4 +32,5 @@ node
 target
 etc
 dist
+compiled
 coverage

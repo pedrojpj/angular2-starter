@@ -14,9 +14,10 @@ import * as fromRoot from '../reducers';
 })
 export class CounterComponent implements OnDestroy {
 
-    private destroyed$: Subject<any> = new Subject<any>();
     public counter$: Observable<any>;
     public counter: Number;
+
+    private destroyed$: Subject<any> = new Subject<any>();
 
     constructor(
         private store: Store<fromRoot.AppState>,
