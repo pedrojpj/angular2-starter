@@ -1,2 +1,1 @@
-export * from './user.actions';
-export * from './counter.actions';
+export { CounterActions } from './counter.actions';

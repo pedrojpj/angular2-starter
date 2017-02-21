@@ -1,9 +1,6 @@
 const webpack = require('webpack');
 const helpers = require('./helpers');
 
-/*
- * Webpack Plugins
- */
 // problem with copy-webpack-plugin
 const AssetsPlugin = require('assets-webpack-plugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
@@ -21,7 +18,7 @@ const ngcWebpack = require('ngc-webpack');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: 'Stratio Angular Starter',
+  title: 'Angular Starter',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
