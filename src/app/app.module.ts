@@ -37,13 +37,15 @@ import { AppState, InternalStateType } from './app.service';
 import { counter } from './app.actions';
 import { provideStore, StoreModule, Store } from '@ngrx/store';
 
-import { CounterComponent } from './components/counter';
+import { HomeComponent, CounterComponent, NavigationComponent } from './components';
 
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [
         AppComponent,
-        CounterComponent
+        CounterComponent,
+        HomeComponent,
+        NavigationComponent
     ],
     imports: [
         APP_IMPORTS
