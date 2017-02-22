@@ -28,16 +28,16 @@ type StoreType = {
 import { ENV_PROVIDERS } from './environment';
 // App is our top level component
 import { AppComponent } from './app.component';
+import { provideStore, StoreModule, Store } from '@ngrx/store';
 
 import { APP_PROVIDERS } from './app.providers';
 import { APP_IMPORTS } from './app.imports';
-
 import { AppState, InternalStateType } from './app.service';
-
 import { counter } from './app.actions';
-import { provideStore, StoreModule, Store } from '@ngrx/store';
 
 import { HomeComponent, CounterComponent, NavigationComponent } from './components';
+
+import '../assets/sass/general.scss';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -50,7 +50,7 @@ import { HomeComponent, CounterComponent, NavigationComponent } from './componen
     imports: [
         APP_IMPORTS
     ],
-    providers: [ 
+    providers: [
         ENV_PROVIDERS,
         APP_PROVIDERS,
         AppState

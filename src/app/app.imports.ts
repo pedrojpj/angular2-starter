@@ -9,7 +9,7 @@ import { rootReducer} from './reducers';
 import { routes } from './app.routes';
 
 
-export const APP_IMPORTS = [
+export const APP_IMPORTS: Array<any> = [
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -18,4 +18,4 @@ export const APP_IMPORTS = [
         maxAge: 5
     }),
     RouterModule.forRoot(routes)
-]
+];
