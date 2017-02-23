@@ -5,9 +5,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterModule } from '@angular/router';
 
-import { rootReducer} from './reducers';
+import { rootReducer } from './reducers';
 import { routes } from './app.routes';
-
 
 export const APP_IMPORTS: Array<any> = [
     BrowserModule,

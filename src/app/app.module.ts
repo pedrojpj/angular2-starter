@@ -3,7 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {
     NgModule,
-    ApplicationRef
+    ApplicationRef,
+    ErrorHandler
 } from '@angular/core';
 import {
     removeNgStyles,
@@ -35,7 +36,9 @@ import { APP_IMPORTS } from './app.imports';
 import { AppState, InternalStateType } from './app.service';
 import { counter } from './app.actions';
 
-import { HomeComponent, CounterComponent, NavigationComponent, FooterComponent } from './components';
+import { ErrorService } from './services';
+
+import { HomeComponent, CounterComponent, NavigationComponent, FooterComponent, ErrorComponent } from './components';
 
 import '../assets/sass/general.scss';
 
@@ -46,7 +49,8 @@ import '../assets/sass/general.scss';
         CounterComponent,
         HomeComponent,
         FooterComponent,
-        NavigationComponent
+        NavigationComponent,
+        ErrorComponent
     ],
     imports: [
         APP_IMPORTS
@@ -54,7 +58,10 @@ import '../assets/sass/general.scss';
     providers: [
         ENV_PROVIDERS,
         APP_PROVIDERS,
-        AppState
+        AppState,
+        {
+            provide: ErrorHandler, useClass: ErrorService
+        }
     ]
 })
 export class AppModule {
