@@ -35,7 +35,7 @@ import { APP_IMPORTS } from './app.imports';
 import { AppState, InternalStateType } from './app.service';
 import { counter } from './app.actions';
 
-import { HomeComponent, CounterComponent, NavigationComponent } from './components';
+import { HomeComponent, CounterComponent, NavigationComponent, FooterComponent } from './components';
 
 import '../assets/sass/general.scss';
 
@@ -45,6 +45,7 @@ import '../assets/sass/general.scss';
         AppComponent,
         CounterComponent,
         HomeComponent,
+        FooterComponent,
         NavigationComponent
     ],
     imports: [

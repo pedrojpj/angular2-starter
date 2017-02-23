@@ -44,21 +44,13 @@ module.exports = function (options) {
       rules: [
         {
           test: /\.css$/,
-          use: ['to-string-loader', 'style-loader', 'css-loader'],
-          include: [helpers.root('src', 'styles')]
+          use: ['style-loader', 'css-loader'],
+          include: [helpers.root('src', 'assets')]
         },
         {
           test: /\.scss$/,
-          use: ['to-string-loader', 'style-loader', 'css-loader', 'sass-loader'],
-          include: [helpers.root('src', 'styles')]
-        },
-        {
-          test: /\.scss$/,
-          include: [helpers.root('src', 'assets')],
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: 'css-loader!sass-loader'
-          })
+          use: ['style-loader', 'css-loader', 'sass-loader'],
+          include: [helpers.root('src', 'assets')]
         }
       ]
 
@@ -74,7 +66,6 @@ module.exports = function (options) {
           'HMR': METADATA.HMR,
         }
       }),
-      new ExtractTextPlugin('assets/css/[name].css'),
 
       new DllBundlesPlugin({
         bundles: {

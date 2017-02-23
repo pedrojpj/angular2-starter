@@ -29,8 +29,8 @@ module.exports = function (options) {
   return {
     entry: {
       'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
+      'main': AOT ? './src/main.browser.aot.ts' :
+        './src/main.browser.ts'
     },
     resolve: {
       extensions: ['.ts', '.js', '.json'],
@@ -71,6 +71,16 @@ module.exports = function (options) {
         {
           test: /\.json$/,
           use: 'json-loader'
+        },
+        {
+          test: /\.css$/,
+          use: ['to-string-loader', 'css-loader'],
+          exclude: [helpers.root('src', 'assets')]
+        },
+        {
+          test: /\.scss$/,
+          use: ['to-string-loader', 'css-loader', 'sass-loader'],
+          exclude: [helpers.root('src', 'assets')]
         },
         {
           test: /\.html$/,
