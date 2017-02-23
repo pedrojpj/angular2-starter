@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-   selector: 'navigation',
+   selector: 'app-navigation',
    templateUrl: 'navigation.html'
 })
 export class NavigationComponent implements OnInit {

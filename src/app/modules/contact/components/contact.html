@@ -1,3 +1,57 @@
-<div>
-   Contact
-</div>
+<section class="hero is-primary">
+   <div class="hero-body">
+      <div class="container">
+         <h1 class="title">
+            Contact
+         </h1>
+      </div>
+   </div>
+</section>
+
+<section class="section">
+
+   <div class="container">
+
+      <div class="notification is-danger" *ngIf="this.submitted && !this.form.valid">
+         {{ errorMessage }}
+      </div>
+
+      <div class="notification is-info" *ngIf="this.okMessage && this.form.valid">
+         {{ okMessage }}
+      </div>
+
+      <form [formGroup]="form" novalidate (ngSubmit)="save(form.value, form.valid)" *ngIf="!this.okMessage">
+         <label class="label">Name</label>
+         <p class="control">
+            <input class="input" formControlName="name" type="text" placeholder="Enter your name">
+         </p>
+
+         <p class="control">
+            <input class="input" formControlName="email" type="text" placeholder="Enter your email">
+         </p>
+
+         <p class="control">
+            <input class="input" formControlName="phone" type="number" placeholder="Enter your phone">
+         </p>
+
+         <p class="control">
+            <textarea class="textarea" formControlName="message" placeholder="Enter your message"></textarea>
+         </p>
+
+         <div class="control is-grouped">
+            <p class="control">
+               <button class="button is-primary">Submit</button>
+            </p>
+            <p class="control">
+               <button type="button" class="button is-link" (click)="clearForm()">Cancel</button>
+            </p>
+         </div>
+
+      </form>
+      
+
+
+   </div>
+
+</section>
+
