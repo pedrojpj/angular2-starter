@@ -5,13 +5,16 @@ Starter kit for Angular 2 with ngrx and AOT (Ahead of Time Compilation)
 ## Features
 
 - NGRX: Reactive Extensions for Angular
-* [ngrx](https://github.com/ngrx)
+[ngrx](https://github.com/ngrx)
 
 - Lazy Loading
-* [Lazy Loading](https://angular.io/docs/ts/latest/guide/ngmodule.html)
+[Lazy Loading](https://angular.io/docs/ts/latest/guide/ngmodule.html)
 
 - AOT (Ahead of Time Compilation)
-* [AOT](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+[AOT](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)
+
+- Bulma (Modern CSS framework base on Flexbox)
+[Bulma](http://bulma.io/)
 
 ## Contributing
 
