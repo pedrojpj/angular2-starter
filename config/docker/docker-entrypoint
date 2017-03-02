@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#source /root/.bash_profile
+
+PORT=${BROWSER_PORT:-80}
+
+printf "Running parameters: \n * port: ${PORT}"
+nginx
+
+tail -f  /var/log/nginx/access.log
