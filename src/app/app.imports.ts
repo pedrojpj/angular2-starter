@@ -9,7 +9,9 @@ import { rootReducer } from './reducers';
 import { routes } from './app.routes';
 
 export const APP_IMPORTS: Array<any> = [
-    BrowserModule,
+    BrowserModule.withServerTransition({
+        appId: 'universal-app'
+    }),
     FormsModule,
     HttpModule,
     StoreModule.provideStore(rootReducer),
