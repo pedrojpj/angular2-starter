@@ -1,6 +1,6 @@
 # angular-ngrx-starter
 
-Starter kit for Angular 2 with ngrx and AOT (Ahead of Time Compilation)
+Starter kit for Angular 4 with ngrx and AOT (Ahead of Time Compilation)
 
 ## Features
 
